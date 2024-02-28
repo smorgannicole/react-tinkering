@@ -1,28 +1,37 @@
 import './App.css'
-import List from './components/List'
-import Button from './components/Button'
-import { useState } from 'react'
-import Alert from './components/Alert'
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
-  const genres = [
-    "Sci-Fi",
-    "Comedy",
-    "Drama",
-    "Horror",
-    "Action",
-]
-const handleSelectedGenre = (genre) => {
-  console.log(genre)
-}
 
-const [alertVisible, setAlertVisibility] = useState(false)
+const [movies, setMovies] = useState([]);
+
+useEffect(() => {
+  const fetchMovies = async () => {
+    try {
+      const response = await fetch(
+        'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=3de804b58dc7ead28d0c9b33edc1d908'
+      );
+      const data = await response.json();
+      setMovies(data.results);
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+    }
+  };
+
+  fetchMovies();
+}, []);
 
   return (
     <>
-    <List genres={genres} heading="Genres" onSelectedGenre={handleSelectedGenre} />
-    <Button color="secondary" onClick={() => setAlertVisibility(true)}>My Button</Button>
-    {alertVisible && <Alert onClose={() => setAlertVisibility(false)}>Alert</Alert>}
+    <h1>Now Playing Movies</h1>
+      <ul>
+        {movies.map((movie) => (
+          <li key={movie.id}>
+            <h2>{movie.title}</h2>
+            <p>{movie.overview}</p>
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
