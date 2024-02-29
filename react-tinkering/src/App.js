@@ -24,11 +24,14 @@ useEffect(() => {
   return (
     <>
     <h1>Now Playing Movies</h1>
-      <ul>
+      <ul className='now-playing-container d-flex'>
         {movies.map((movie) => (
-          <li key={movie.id}>
+          <li key={movie.id}className='now-playing-movie col-3 d-flex'>
+            <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" />
             <h2>{movie.title}</h2>
             <p>{movie.overview}</p>
+            <p>{movie.release_date}</p>
+            <p>{Math.round(movie.vote_average)}/10</p>
           </li>
         ))}
       </ul>
@@ -37,3 +40,4 @@ useEffect(() => {
 }
 
 export default App
+
