@@ -1,3 +1,16 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+	--clr-almost-blk: #000814;
+	--clr-dark-nvy: #001D3D;
+	--clr-navy: #003566;
+	--clr-marigold: #FFC300;
+	--clr-yellow: #FFD60A;
+}
+
+
 .now-playing-container {
   justify-content: center;
   list-style: none;
@@ -8,6 +21,19 @@
 .now-playing-movie {
   border: 1px solid #000;
 	flex-direction: column;
+}
+
+.scroll-wrapper {
+	display: flex;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+	width: 0;
+}
+
+.img-on-scroll {
+	max-width: 50dvw;
+	max-height: 100dvh;
 }
 
 
