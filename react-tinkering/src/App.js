@@ -27,10 +27,12 @@ const App = () => {
 
   return (
     <>
-    <h1>Now Playing Movies</h1>
-    <Nav />
-    {/* <NowPlaying movies={movies} /> */}
-    <ScrollBar movies={movies} />
+    <div className='app-wrapper'>
+      <h1>Now Playing Movies</h1>
+      <Nav />
+      {/* <NowPlaying movies={movies} /> */}
+      <ScrollBar movies={movies} />
+    </div>
     </>
   )
 }

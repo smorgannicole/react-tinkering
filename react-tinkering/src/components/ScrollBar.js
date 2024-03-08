@@ -4,17 +4,52 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function ScrollBar({ movies }) {
+
+
+
   var settings = {
+    className: "center",
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "13%",
+    onSwipe: true,
+    appendDots: dots => (
+      <div
+        style={{
+          
+          color: "rgba(255, 255, 255, 0.5)",
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: i => (
+      <div
+        style={{
+          fontSize: "20px",
+          transition: "font-size 0.2s", 
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.fontSize = "24px"
+    e.target.style.color = "#fff"
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.fontSize = "20px"
+    e.target.style.color = "rgba(255, 255, 255, 0.5)"
+  }}
+      >
+        •
+      </div>
+    )
   };
   return (
     <>
-        {/* <div className='scroll-wrapper'> */}
-          <Slider {...settings}>
+        <div className="slick-container">
+          <Slider className='slick-slider' {...settings}>
             {movies.map((movie, index) => (
             <div key={movie.id} className='movie-on-scroll'>
                 {/* <img className='img-on-scroll' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" /> */}
@@ -26,7 +61,7 @@ export default function ScrollBar({ movies }) {
             </div>
             ))}
           </Slider>
-        {/* </div> */}
+        </div>
     </>
   )
 }

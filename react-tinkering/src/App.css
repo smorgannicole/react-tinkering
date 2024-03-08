@@ -10,6 +10,13 @@
 	--clr-yellow: #FFD60A;
 }
 
+.app-wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100dvh;
+	background-color: var(--clr-almost-blk); 
+	color: #fff;
+}
 
 .now-playing-container {
   justify-content: center;
@@ -23,17 +30,37 @@
 	flex-direction: column;
 }
 
-.scroll-wrapper {
-	display: flex;
-}
-
-.scroll-wrapper::-webkit-scrollbar {
-	width: 0;
-}
-
 .img-on-scroll {
-	max-width: 50dvw;
-	max-height: 100dvh;
+	border-radius: 5px;
+}
+
+.slick-container {
+margin: 0 auto;
+width: 90%;
+}
+
+.slick-prev, .slick-next {
+z-index: 1;
+}
+
+.slick-prev {
+left: 0;
+}
+
+.slick-next {
+right: 0;
+}
+
+.slick-dots {
+	color: #fff;
+}
+
+.slick-slide {
+	margin-right: 10px;
+}
+
+.movie-on-scroll {
+	gap: 10px;
 }
 
 
@@ -43,4 +70,8 @@
 		width: 100%;
 		object-fit: cover;
 } */
+
+
+
+
 
