@@ -20,7 +20,7 @@ export default function ScrollBar({ movies }) {
     appendDots: dots => (
       <div
         style={{
-          
+
           color: "rgba(255, 255, 255, 0.5)",
         }}
       >
@@ -48,20 +48,22 @@ export default function ScrollBar({ movies }) {
   };
   return (
     <>
-        <div className="slick-container">
-          <Slider className='slick-slider' {...settings}>
-            {movies.map((movie, index) => (
+      <div className="slick-container">
+        <Slider className='slick-slider' {...settings}>
+          {movies.map((movie, index) => (
             <div key={movie.id} className='movie-on-scroll'>
-                {/* <img className='img-on-scroll' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" /> */}
-                <img className='img-on-scroll' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" />
-                {/* <h2>{movie.title}</h2>
+              <img className='img-on-scroll' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" />
+              <div class="overlay"></div>
+              <div class="hover-content flex flex-col gap-3">
+                <h2 className='np-slider-title'>{movie.title}</h2>
                 <p>{movie.overview}</p>
                 <p>{movie.release_date}</p>
-                <p>{Math.round(movie.vote_average)}/10</p> */}
+                <p>{Math.round(movie.vote_average)}/10</p>
+              </div>
             </div>
-            ))}
-          </Slider>
-        </div>
+          ))}
+        </Slider>
+      </div>
     </>
   )
 }

@@ -29,7 +29,7 @@ const App = () => {
     <>
     <div className='app-wrapper'>
       <h1>Now Playing Movies</h1>
-      <Nav />
+      <Nav /> 
       {/* <NowPlaying movies={movies} /> */}
       <ScrollBar movies={movies} />
     </div>
