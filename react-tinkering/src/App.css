@@ -66,6 +66,7 @@
   color: var(--clr-marigold);
   opacity: 0;
   transition: opacity 0.3s ease; 
+	gap: 12px;
 }
 
 .np-slider-title {
@@ -81,10 +82,14 @@
     width: 90%;
     padding: 12px;
     font-size: 9px; 
+		gap: 3px !important;
   }
 	.np-slider-title {
 		font-size: 12px;
 	}
+	.slick-dots {
+    display: none !important;
+  }
 }
 
 
@@ -115,10 +120,6 @@ left: 0;
 
 .slick-next {
 right: 0;
-}
-
-.slick-dots {
-	color: #fff;
 }
 
 /* .movie-on-scroll {

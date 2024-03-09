@@ -15,7 +15,7 @@ export default function ScrollBar({ movies }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: "13%",
+    centerPadding: "15%",
     onSwipe: true,
     appendDots: dots => (
       <div
@@ -45,7 +45,8 @@ export default function ScrollBar({ movies }) {
         •
       </div>
     )
-  };
+  }
+
   return (
     <>
       <div className="slick-container">
@@ -54,7 +55,7 @@ export default function ScrollBar({ movies }) {
             <div key={movie.id} className='movie-on-scroll'>
               <img className='img-on-scroll' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" />
               <div class="overlay"></div>
-              <div class="hover-content flex flex-col gap-3">
+              <div class="hover-content flex flex-col">
                 <h2 className='np-slider-title'>{movie.title}</h2>
                 <p>{movie.overview}</p>
                 <p>{movie.release_date}</p>
